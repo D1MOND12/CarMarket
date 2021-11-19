@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CarMarket.Models.Cars>
+@{
+    //ViewData["Title"] = "Список машин";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Элитный автомагазин</title>
+</head>
+<body>
+    <h3>Машины</h3>
+    <table>
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var cars in Model)
+        {
+            <tr>
+                <td>@cars.Name</td>
+                <td>@cars.Marks</td>
+                <td>@cars.Price</td>
+                <td><a href="~/Home/Buy/@cars.Id">Купить</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
