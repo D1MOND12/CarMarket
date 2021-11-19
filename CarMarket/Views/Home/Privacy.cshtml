@@ -1,17 +1,10 @@
 ﻿@model IEnumerable<CarMarket.Models.Cars>
 @{
-    //ViewData["Title"] = "Список машин";
-    Layout = null;
+    ViewData["Title"] = "Список машин";
 }
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>Элитный автомагазин</title>
-</head>
-<body>
     <h3>Машины</h3>
-    <table>
+    <table class="table-condensed">
         <tr>
             <td>Модель</td>
             <td>Производитель</td>
@@ -28,5 +21,4 @@
             </tr>
         }
     </table>
-</body>
-</html>
+

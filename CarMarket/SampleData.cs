@@ -8,7 +8,7 @@ namespace CarMarket
 {
     public static class SampleData
     {
-        public static void Initialize(CarContext context)
+        public static void Initialize(ApplicationContext context)
         {
             if (!context.Cars.Any())
             {

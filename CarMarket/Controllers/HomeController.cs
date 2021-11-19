@@ -11,17 +11,27 @@ namespace CarMarket.Controllers
 {
     public class HomeController : Controller
     {
-        CarContext db;
-        public HomeController(CarContext context)
+        ApplicationContext db;
+        public HomeController(ApplicationContext context)
         {
             db = context;
         }
 
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        [HttpGet]
+        public IActionResult Buy(int? id)
         {
-            _logger = logger;
+            if (id == null) return RedirectToAction("Privacy");
+            ViewBag.MarketId = id;
+            return View();
+        }
+        [HttpPost]
+        public string Buy(Market market)
+        {
+            db.Market.Add(market);
+            db.SaveChanges();
+            return "Спасибо, " + market.User + ", за покупку!";
         }
 
         public IActionResult Index()

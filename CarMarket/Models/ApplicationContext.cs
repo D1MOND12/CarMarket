@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarMarket.Models
 {
-    public class CarContext : DbContext
+    public class ApplicationContext : DbContext
     {
         public DbSet<Cars> Cars { get; set; }
         public DbSet<Market> Market { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        public CarContext(DbContextOptions<CarContext> options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
             Database.EnsureCreated();

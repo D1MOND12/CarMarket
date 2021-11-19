@@ -1,0 +1,40 @@
+﻿@model CarMarket.Models.User
+@{
+    ViewBag.Title = "О пользователе";
+    ViewBag.Title = Model.Name;
+}
+<h2>Пользователь @Model.Name</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Идентификатор</dt>
+        <dd>@Model.Id</dd>
+         <dt>Имя</dt>
+        <dd>@Model.Name</dd>
+       <dt>Email</dt>
+        <dd>@Model.Email</dd>
+        <dt>Пароль</dt>
+        <form>
+        <div class="form-group">
+        <input id="passwordTextBox" type="Password" style="outline:none" value=@Model.Password readonly></input>
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleShowPassword()">
+  <label class="custom-control-label" for="customSwitch1">Показать пароль</label>
+</div>
+</div>
+</form>
+    </dl>
+    <h2>Заказы:</h2>
+    <table class="table">
+           <tr>   <th>Номер Заказа</th><th>Статус заказа</th><th>Логин</th><th>Услуга</th><th>Время заказа</th>   </tr>
+        @foreach (var item in @Model.Orders)
+    {
+        <tr><td>@item.Id</td>
+        <td>@item.Status</td>
+        <td>@item.User.Name</td>
+        <td>@item.Service.Name</td>
+        <td>@item.OrderTime</td>
+            </tr>
+    }
+</table>
+</div>
+

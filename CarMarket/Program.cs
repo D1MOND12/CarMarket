@@ -22,7 +22,7 @@ namespace CarMarket
 
                 try
                 {
-                    var context = services.GetRequiredService<CarContext>();
+                    var context = services.GetRequiredService<ApplicationContext>();
                     SampleData.Initialize(context);
                 }
                 catch (Exception ex)
